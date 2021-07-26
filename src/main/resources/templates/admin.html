@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Admin Details</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container my-2">
+    <h1>Admin List</h1>
+    <hr>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+            <tr>
+                <th>Admin Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>                                
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="admin : ${listAdmins}">
+                <td th:text="${admin.admin_id}">Admin ID</td>                
+                <td th:text="${admin.name}">Name</td>
+                <td th:text="${admin.email}">Email</td>
+                <td th:text="${admin.password}">Password</td>                             
+                <td>
+                    <a th:href="@{'/editAdmin/' + ${admin.admin_id}}" class="btn btn-info btn-sm mb-3">Update</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deleteAdmin/' + ${admin.admin_id}}" class="btn btn-info btn-sm mb-3">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/newAdmin" class="btn btn-info btn-sm mb-3">Create New Admin</a>
+</div>
+   
+</body>
+</html>

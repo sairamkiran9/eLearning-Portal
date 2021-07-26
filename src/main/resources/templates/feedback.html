@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Feedback Details</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container my-2">
+    <h1>Feedback List</h1>
+    <hr>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>Feedback Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Feedback</th>                                
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="feedback : ${listFeedbacks}">
+            	<td th:text="${feedback.user_id}">User ID</td> 
+                <td th:text="${feedback.f_id}">Feedback ID</td>                
+                <td th:text="${feedback.name}">Name</td>
+                <td th:text="${feedback.email}">Email</td>
+                <td th:text="${feedback.feedback}">Feedback</td>                             
+                <td>
+                    <a th:href="@{'/editFeedback/' + ${feedback.f_id}}" class="btn btn-info btn-sm mb-3">Update</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deleteFeedback/' + ${feedback.f_id}}" class="btn btn-info btn-sm mb-3">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/newFeedback" class="btn btn-info btn-sm mb-3">Create New Feedback</a>
+</div>
+   
+</body>
+</html>
