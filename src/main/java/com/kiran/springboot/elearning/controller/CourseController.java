@@ -35,21 +35,44 @@ public class CourseController {
 
 	@PostMapping(value = "/saveCourse")
 	public String saveCourse(@ModelAttribute("course") Course course) {
-		service.save(course);
-		return "redirect:/courses";
+		System.out.print(course.getCourse_id());
+		service.save(course); 
+		return "redirect:/getCourse/"+Long.toString(course.getCourse_id());
 	}
 
 	@GetMapping("/editCourse/{course_id}")
 	public ModelAndView showEditCoursePage(@PathVariable(name = "course_id") Long course_id) {
+		try {
 		ModelAndView mav = new ModelAndView("editCourse");
 		Course course = service.get(course_id);
 		mav.addObject("course", course);
 		return mav;
+		} catch (Exception e) {
+//			e.printStackTrace();
+			ModelAndView mav = new ModelAndView("notFound");
+			mav.addObject("notFound", "This may be due to Invalid Entry!");
+			return mav;
+		}
 	}
 
 	@GetMapping("/deleteCourse/{course_id}")
 	public String deleteAdmin(@PathVariable(name = "course_id") Long course_id) {
 		service.delete(course_id);
-		return "redirect:/courses";
+		return "logout";
+	}
+	
+	@GetMapping("/getCourse/{course_id}")
+	public ModelAndView showCoursePage(@PathVariable(name = "course_id") Long course_id) {
+		try {
+		ModelAndView mav = new ModelAndView("getCourse");
+		Course course = service.get(course_id);
+		mav.addObject("course", course);
+		return mav;
+		}catch (Exception e) {
+//			e.printStackTrace();
+			ModelAndView mav = new ModelAndView("notFound");
+			mav.addObject("notFound", "This may be due to Invalid Entry!");
+			return mav;
+		}
 	}
 }

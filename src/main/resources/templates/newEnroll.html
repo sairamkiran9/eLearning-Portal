@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Create New Course</title>
+	<title>Enrollment Page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -11,33 +11,32 @@
 
 <body>
 	<div class="container my-2">
-		<h1>Create New Course</h1>
+		<h1>Enroll New Course</h1>
 		<hr>
 		<br />
-		<form action="#" th:action="@{/saveCourse}" th:object="${course}" method="post">
-
+		<form action="#" th:action="@{/saveEnroll}" th:object="${enroll}" method="post">
+			<div class="form-group row">
+				<label for="Name" class="col-sm-2 col-form-label">User Id</label>
+				<div class="col-sm-3">
+					<input type="text" th:field="*{user_id}" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="Name" class="col-sm-2 col-form-label">Course Id</label>
+				<div class="col-sm-3">
+					<input type="text" th:field="*{course_id}" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="Name" class="col-sm-2 col-form-label">UserName</label>
+				<div class="col-sm-3">
+					<input type="text" th:field="*{name}" class="form-control" />
+				</div>
+			</div>
 			<div class="form-group row">
 				<label for="Name" class="col-sm-2 col-form-label">Course Name</label>
 				<div class="col-sm-3">
 					<input type="text" th:field="*{c_name}" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label for="Description" class="col-sm-2 col-form-label">Description</label>
-				<div class="col-sm-3">
-					<input type="text" th:field="*{c_desp}" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label for="Fee" class="col-sm-2 col-form-label">Fees</label>
-				<div class="col-sm-3">
-					<input type="text" th:field="*{c_fees}" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label for="Resource" class="col-sm-2 col-form-label">Resource</label>
-				<div class="col-sm-3">
-					<input type="text" th:field="*{c_resource}" class="form-control" />
 				</div>
 			</div>
 			<button type="submit" class="btn btn-info btn-sm mb-3">Save</button>

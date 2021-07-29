@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Enrollment Details</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container my-5">
+		<h1>Student Details</h1>
+		<hr>
+		<p>User Id &nbsp; <span th:text="${user.user_id}">user_id</span> </p> 
+		<p>UserName &nbsp; <span th:text="${user.name}">username</span> </p>
+		<br>
+		<h3>Enrolled Course Details</h3>
+		<br />
+		<div class="table-responsive-sm">
+			<table border="1" class="table table-striped table-responsive-md">
+				<thead>
+					<tr>
+						<th>Enroll Id</th>
+						<th>Course Id</th>
+						<th>Course Name</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="enroll : ${enrolled}">
+						<td th:text="${enroll.enroll_id}">Enroll ID</td>
+						<td th:text="${enroll.course_id}">Course ID</td>
+						<td th:text="${enroll.c_name}">Course Name</td>
+						<td>
+							<a th:href="@{'/getCourse/' + ${enroll.course_id}}" class="btn btn-info btn-sm mb-3">View
+								Details</a>
+							&nbsp;
+							<a th:href="@{'/unEnroll/' + ${enroll.enroll_id}}"
+								class="btn btn-info btn-sm mb-3">UnEnroll</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

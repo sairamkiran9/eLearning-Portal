@@ -1,0 +1,16 @@
+body{
+	background-image: url("image3.jpeg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+h1,h2{
+	color:white;
+}
+
