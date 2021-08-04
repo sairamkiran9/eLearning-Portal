@@ -1,46 +1,48 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="utf-8"/>
-<title>Contact Details</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<meta charset="utf-8" />
+	<title>Contact Details</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
+
 <body>
-<div class="container my-2">
-    <h1>Contact List</h1>
-    <hr>
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-            <tr>
-                <th>User Id</th>
-                <th>Contact Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone No</th>
-                <th>Message</th>                
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="contact : ${listContacts}">
-                <td th:text="${contact.user_id}">User ID</td>
-                <td th:text="${contact.contact_id}">Contact ID</td>
-                <td th:text="${contact.name}">Name</td>
-                <td th:text="${contact.phone_no}">Phone No</td>
-                <td th:text="${contact.email}">Email</td>
-                <td th:text="${contact.message}">Message</td>                
-                <td>
-                    <a th:href="@{'/editContact/' + ${contact.user_id}}" class="btn btn-info btn-sm mb-3">Update</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/deleteContact/' + ${contact.user_id}}" class="btn btn-info btn-sm mb-3">Delete</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="/newContact" class="btn btn-info btn-sm mb-3">Create New Contact</a>
-</div>
-   
+	<div class="container my-5">
+		<h1>Contact List</h1>
+		<hr>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>User Id</th>
+					<th>Contact Id</th>
+					<th>Name</th>
+					<th>Phone No</th>
+					<th>Email</th>
+					<th>Message</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="contact : ${listContacts}">
+					<td th:text="${contact.user_id}">User ID</td>
+					<td th:text="${contact.contact_id}">Contact ID</td>
+					<td th:text="${contact.name}">Name</td>
+					<td th:text="${contact.phone_no}">Phone No</td>
+					<td th:text="${contact.email}">Email</td>
+					<td th:text="${contact.message}">Message</td>
+					<td>
+						<a th:href="@{'/getContact/' + ${contact.user_id}}" class="btn btn-info btn-sm mb-3">View</a>
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+
 </body>
+
 </html>

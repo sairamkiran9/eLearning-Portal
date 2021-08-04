@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>User Profile</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container my-5">
+		<h1>User Details</h1>
+		<hr>
+		<br />
+		<div class="table-responsive-sm">
+			<table class="table table-borderless">
+				<tbody>
+					<tr>
+						<td>User ID</td>
+						<td th:text="${user.user_id}">User ID</td>
+					</tr>
+					<tr>
+						<td>Name</td>
+						<td th:text="${user.name}">Name</td>
+					</tr>
+					<tr>
+						<td>Phone Number</td>
+						<td th:text="${user.phone_no}">Phone Number</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td th:text="${user.email}">Email</td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td th:text="${user.address}">Address</td>
+					</tr>
+					<tr>
+						<td>Reg Date</td>
+						<td th:text="${user.reg_date}">Reg Date</td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td th:text="${user.password}">Password</td>
+					</tr>
+				</tbody>
+			</table>
+			<a th:href="@{'/editUser/' + ${user.user_id}}" class="btn btn-info btn-sm mb-3">Update</a>
+			&nbsp;&nbsp;&nbsp;
+			<a th:href="@{'/deleteUser/' + ${user.user_id}}" class="btn btn-info btn-sm mb-3">Delete</a>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -36,20 +36,48 @@ public class UserController {
 	@PostMapping(value = "/saveUser")
 	public String saveUser(@ModelAttribute("user") User user) {
 		service.save(user);
-		return "redirect:/users";
+		return "userIndex";
 	}
 
 	@GetMapping("/editUser/{user_id}")
 	public ModelAndView showEditUserPage(@PathVariable(name = "user_id") Long user_id) {
-		ModelAndView mav = new ModelAndView("editUser");
-		User user = service.get(user_id);
-		mav.addObject("user", user);
-		return mav;
+		try {
+			User user = service.get(user_id);
+			ModelAndView mav = new ModelAndView("editUser");
+			mav.addObject("user", user);
+			return mav;
+		} catch (Exception e) {
+//			e.printStackTrace();
+			ModelAndView mav = new ModelAndView("notFound");
+			mav.addObject("notFound", "This may be due to Invalid Entry!");
+			return mav;
+		}
 	}
 
 	@GetMapping("/deleteUser/{user_id}")
 	public String deleteUser(@PathVariable(name = "user_id") Long user_id) {
+		try {
 		service.delete(user_id);
-		return "redirect:/users";
+		} catch (Exception e) {
+//			e.printStackTrace();
+			return "logout";
+		}
+		return "logout";
 	}
+
+	@GetMapping("/getUser/{user_id}")
+	public ModelAndView showUserPage(@PathVariable(name = "user_id") Long user_id) {
+		try {
+		User user = service.get(user_id);
+		ModelAndView mav = new ModelAndView("getUser");
+		mav.addObject("user", user);
+		return mav;
+		} catch (Exception e) {
+//			e.printStackTrace();
+			ModelAndView mav = new ModelAndView("notFound");
+			mav.addObject("notFound", "This may be due to Invalid Entry!");
+			return mav;
+		}
+	}
+
 }

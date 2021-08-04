@@ -6,24 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kiran.springboot.elearning.model.Feedback;
-import com.kiran.springboot.elearning.repository.FeedbackRepository;
+import com.kiran.springboot.elearning.model.Enroll;
+import com.kiran.springboot.elearning.repository.EnrollRepository;
 
 @Service
 @Transactional
-public class FeedbackService {
+public class EnrollService {
 	@Autowired
-    private FeedbackRepository repo;
+    private EnrollRepository repo;
      
-    public List<Feedback> listAll() {
+    public List<Enroll> listAll() {
         return repo.findAll();
     }
      
-    public void save(Feedback feedback) {
-        repo.save(feedback);
+    public void save(Enroll enroll) {
+        repo.save(enroll);
     }
      
-    public Feedback get(long id) {
+    public Enroll get(long id) {
         return repo.findById(id).get();
     }
      
@@ -31,7 +31,7 @@ public class FeedbackService {
         repo.deleteById(id);
     }
     
-    public long getUser(long id) {
-    	return repo.getUser(id);
+    public List<Enroll> getEnroll(Long id){
+    	return repo.getEnroll(id);
     }
 }

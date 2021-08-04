@@ -1,44 +1,45 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="utf-8"/>
-<title>Course Details</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<meta charset="utf-8" />
+	<title>Course Details</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
+
 <body>
-<div class="container my-2">
-    <h1>Course  List</h1>
-    <hr>
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-            <tr>
-                <th>Course  Id</th>
-                <th>Course  Name</th>
-                <th>Description</th>
-                <th>Fees</th> 
-                <th>Resources</th>                               
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="course : ${listCourses}">
-                <td th:text="${course.course_id}">Course ID</td>                
-                <td th:text="${course.c_name}">Course Name</td>
-                <td th:text="${course.c_desp}">Description</td>
-                <td th:text="${course.c_fees}">Fees</td>        
-                <td th:text="${course.c_resource}">Resources</td>                      
-                <td>
-                    <a th:href="@{'/editCourse/' + ${course.course_id}}" class="btn btn-info btn-sm mb-3">Update</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/deleteCourse/' + ${course.course_id}}" class="btn btn-info btn-sm mb-3">Delete</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="/newCourse" class="btn btn-info btn-sm mb-3">Create New Course</a>
-</div>
-   
+	<div class="container my-5">
+		<h1>Course List</h1>
+		<hr>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Course Id</th>
+					<th>Course Name</th>
+					<th>Description</th>
+					<th>Fees</th>
+					<th>Resources</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="course : ${listCourses}">
+					<td th:text="${course.course_id}">Course ID</td>
+					<td th:text="${course.c_name}">Course Name</td>
+					<td th:text="${course.c_desp}">Description</td>
+					<td th:text="${course.c_fees}">Fees</td>
+					<td th:text="${course.c_resource}">Resources</td>
+					<td>
+						<a th:href="@{'/getCourse/' + ${course.course_id}}" class="btn btn-info btn-sm mb-3">View</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+
 </body>
+
 </html>

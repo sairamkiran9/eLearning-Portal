@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Admin</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container my-5">
+		<h1>Admin </h1>
+		<hr>
+		<p><b>Admin ID:</b> &nbsp;&nbsp;<span th:text="${admin.admin_id}">Admin ID </span></p>
+		<p><b>Admin Name:</b> &nbsp;&nbsp;<span th:text="${admin.name}">Admin Name </span></p>
+
+		<hr>
+
+		<h3> Profile</h3>
+		<hr>
+		<a th:href="@{'/getAdmin/' + ${admin.admin_id}}" class="btn btn-info btn-sm mb-3">View</a> &nbsp;
+		<a th:href="@{'/editAdmin/' + ${admin.admin_id}}" class="btn btn-info btn-sm mb-3">Update</a> &nbsp;
+		<a th:href="@{'/deleteAdmin/' + ${admin.admin_id}}" class="btn btn-info btn-sm mb-3">Delete</a> <br><br>
+		<a th:href="@{/newUser}" class="btn btn-info btn-sm mb-3">Add User</a> &nbsp;
+		<a th:href="@{/newAdmin}" class="btn btn-info btn-sm mb-3">Add Admin</a> &nbsp;
+		<a th:href="@{/newCourse}" class="btn btn-info btn-sm mb-3">Add Course</a> &nbsp;
+
+		<br>
+		<h3> View </h3>
+		<hr>
+		<a th:href="@{/admins}" class="btn btn-info btn-sm mb-3">Admins</a> &nbsp;
+		<a th:href="@{/users}" class="btn btn-info btn-sm mb-3">Users</a> &nbsp;
+		<a th:href="@{/contacts}" class="btn btn-info btn-sm mb-3">Contacts</a> &nbsp;
+		<a th:href="@{/feedbacks}" class="btn btn-info btn-sm mb-3">Feedbacks</a> &nbsp;
+		<a th:href="@{/courses}" class="btn btn-info btn-sm mb-3">Courses</a> &nbsp;
+		<br><br><br>
+		<a th:href="@{/logout}" class="btn btn-secondary btn-sm mb-3">Logout</a> &nbsp;
+	</div>
+
+</body>
+
+</html>

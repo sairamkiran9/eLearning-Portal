@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>User</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container my-2">
+		<h1>User </h1>
+		<hr>
+		<p><b>User ID:</b> &nbsp;&nbsp;<span th:text="${user.user_id}">Admin ID </span></p>
+		<p><b>User Name:</b> &nbsp;&nbsp;<span th:text="${user.name}">Admin Name </span></p>
+
+		<h3> Profile</h3>
+		<hr>
+		<a th:href="@{'/getUser/' + ${user.user_id}}" class="btn btn-info btn-sm mb-3">View</a> &nbsp;
+		<a th:href="@{'/editUser/' + ${user.user_id}}" class="btn btn-info btn-sm mb-3">Update</a> &nbsp;
+		
+
+		<h3> Feedback </h3>
+		<hr>
+		<a th:href="@{'/userFeedback/' + ${user.user_id}}" class="btn btn-info btn-sm mb-3">View Feedback </a> &nbsp;
+		<a th:href="@{'/newFeedback/'}" class="btn btn-info btn-sm mb-3">New Feedback</a> <br><br>
+
+		<h3> Course</h3>
+		<hr>
+		<a th:href="@{'/getToEnroll/'+${user.user_id}}" class="btn btn-info btn-sm mb-3">Enroll New Course</a> &nbsp;
+		<a th:href="@{'/enroll/' + ${user.user_id}}" class="btn btn-info btn-sm mb-3">My Courses</a> &nbsp;
+
+		<br>
+		<h3> View </h3>
+		<hr>
+		<a th:href="@{/contacts}" class="btn btn-info btn-sm mb-3">Contacts</a> &nbsp;
+		<a th:href="@{'/userFeedback/'+${user.user_id}}" class="btn btn-info btn-sm mb-3">Feedbacks</a> &nbsp;
+		<a th:href="@{/courses}" class="btn btn-info btn-sm mb-3">Courses</a> &nbsp;
+		<br><br>
+		<a th:href="@{/logout}" class="btn btn-secondary btn-sm mb-3">Logout</a> &nbsp;
+
+	</div>
+
+</body>
+
+</html>
