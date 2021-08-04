@@ -114,7 +114,8 @@ public class FeedbackController {
 		} catch (Exception e) {
 //			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("notFound");
-			mav.addObject("notFound", "This may be due to Invalid Entry!");
+			mav.addObject("notFound", "Please add a feedback to view!");
+
 			return mav;
 		}
 	}
