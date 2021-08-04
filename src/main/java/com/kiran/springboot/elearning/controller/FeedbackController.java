@@ -115,6 +115,7 @@ public class FeedbackController {
 //			e.printStackTrace();
 			ModelAndView mav = new ModelAndView("notFound");
 			mav.addObject("notFound", "Please add a feedback to view!");
+
 			return mav;
 		}
 	}
