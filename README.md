@@ -1,3 +1,3 @@
 # eLearning Portal
 
-An eLearning portal devloped in Spring Boot framework using JPA Repository, MySQL and Thymeleaf engine.
+An eLearning portal devloped using Spring Boot framework with help of JPA Repository, MySQL and Thymeleaf engine.
